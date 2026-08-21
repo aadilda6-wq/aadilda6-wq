@@ -13,9 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Generate contribution snake
         uses: Platane/snk@v3
         with:
@@ -24,14 +21,11 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      - name: Copy generated snake
-        run: |
-          mkdir -p output
-          cp dist/github-contribution-grid-snake.svg output/github-contribution-grid-snake.svg
-          cp dist/github-contribution-grid-snake-dark.svg output/github-contribution-grid-snake-dark.svg
-
-      - name: Commit generated snake
-        uses: EndBug/add-and-commit@v9
+      - name: Publish snake to output branch
+        uses: crazy-max/ghaction-github-pages@v5
         with:
-          add: "output/*.svg"
-          message: "chore: update contribution snake"
+          target_branch: output
+          build_dir: dist
+          commit_message: "chore: update contribution snake"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
