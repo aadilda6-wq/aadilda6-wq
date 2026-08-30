@@ -1,0 +1,150 @@
+name: Generate Contribution Activity
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "15 3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate self-hosted activity graph
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USERNAME: aadilda6-wq
+        run: |
+          python3 - <<'PY'
+          import datetime
+          import json
+          import os
+          import urllib.request
+          import xml.etree.ElementTree as ET
+
+          token = os.environ["GITHUB_TOKEN"]
+          username = os.environ["GITHUB_USERNAME"]
+          today = datetime.date.today()
+          start = today - datetime.timedelta(days=30)
+
+          query = '''
+          query($login: String!, $from: DateTime!, $to: DateTime!) {
+            user(login: $login) {
+              contributionsCollection(from: $from, to: $to) {
+                contributionCalendar {
+                  totalContributions
+                  weeks {
+                    contributionDays {
+                      date
+                      contributionCount
+                    }
+                  }
+                }
+              }
+            }
+          }
+          '''
+
+          payload = json.dumps({
+              "query": query,
+              "variables": {
+                  "login": username,
+                  "from": f"{start}T00:00:00Z",
+                  "to": f"{today}T23:59:59Z"
+              }
+          }).encode()
+
+          request = urllib.request.Request(
+              "https://api.github.com/graphql",
+              data=payload,
+              headers={
+                  "Authorization": f"bearer {token}",
+                  "Content-Type": "application/json",
+                  "User-Agent": "github-contribution-activity"
+              },
+              method="POST"
+          )
+
+          with urllib.request.urlopen(request) as response:
+              data = json.load(response)
+
+          if data.get("errors"):
+              raise SystemExit(json.dumps(data["errors"], indent=2))
+
+          days = []
+          weeks = data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
+          for week in weeks:
+              for day in week["contributionDays"]:
+                  days.append(day)
+
+          days_by_date = {d["date"]: d["contributionCount"] for d in days}
+          values = [days_by_date.get(str(start + datetime.timedelta(days=i)), 0) for i in range(31)]
+          total = sum(values)
+          maximum = max(values) if values else 1
+
+          width = 900
+          height = 360
+          left = 70
+          right = 30
+          top = 70
+          bottom = 65
+          plot_w = width - left - right
+          plot_h = height - top - bottom
+
+          points = []
+          for i, value in enumerate(values):
+              x = left + (plot_w * i / 30)
+              y = top + plot_h - (value / maximum * plot_h if maximum else 0)
+              points.append((x, y))
+
+          polyline = " ".join(f"{x:.1f},{y:.1f}" for x, y in points)
+          area_points = f"{left},{top + plot_h} " + polyline + f" {left + plot_w},{top + plot_h}"
+
+          svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
+            <defs>
+              <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#4C1D95" stop-opacity="0.02"/>
+              </linearGradient>
+            </defs>
+            <rect width="100%" height="100%" rx="12" fill="#0D0B1F"/>
+            <text x="{width/2}" y="32" text-anchor="middle" fill="#A78BFA" font-family="Arial, sans-serif" font-size="16" font-weight="600">{username} — Contribution Activity</text>
+            <text x="{left}" y="54" fill="#9CA3AF" font-family="Arial, sans-serif" font-size="12">Last 31 days · {total} contributions</text>
+            <line x1="{left}" y1="{top + plot_h}" x2="{left + plot_w}" y2="{top + plot_h}" stroke="#312E81"/>
+            <line x1="{left}" y1="{top}" x2="{left}" y2="{top + plot_h}" stroke="#312E81"/>
+            <polygon points="{area_points}" fill="url(#area)"/>
+            <polyline points="{polyline}" fill="none" stroke="#8B5CF6" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+          '''
+
+          for i, (x, y) in enumerate(points):
+              value = values[i]
+              svg += f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" fill="#A78BFA"/>'
+              if i in (0, 7, 14, 21, 30):
+                  label_date = start + datetime.timedelta(days=i)
+                  svg += f'<text x="{x:.1f}" y="{top + plot_h + 28}" text-anchor="middle" fill="#6B7280" font-family="Arial, sans-serif" font-size="11">{label_date.strftime("%b %d")}</text>'
+
+          svg += f'<text x="{left - 12}" y="{top + 5}" text-anchor="end" fill="#6B7280" font-family="Arial, sans-serif" font-size="11">{maximum}</text>'
+          svg += f'<text x="{left - 12}" y="{top + plot_h}" text-anchor="end" fill="#6B7280" font-family="Arial, sans-serif" font-size="11">0</text>'
+          svg += '</svg>'
+
+          os.makedirs("profile", exist_ok=True)
+          with open("profile/activity.svg", "w", encoding="utf-8") as f:
+              f.write(svg)
+          PY
+
+      - name: Commit generated graph
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add profile/activity.svg
+          git commit -m "chore: update contribution activity" || exit 0
+          git push
