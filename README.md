@@ -76,7 +76,75 @@ My approach is product-oriented: understand the problem, design a practical solu
 
 ## Featured Projects
 
-<details><summary><strong>01 · Exam Hall Seating System</strong></summary>
+<details open><summary><strong>01 · STYLIN — AI-Powered AR Fashion Comparison</strong></summary>
+
+AI-powered fashion comparison project designed around **live camera input and reference-photo overlays**, exploring interactive visual comparison for fashion and styling use cases.
+
+| Metric | Details |
+| --- | --- |
+| Stack | Project currently contains a focused README and project setup; implementation stack is evolving |
+| Scale | AI / AR fashion concept |
+| Performance | Benchmark not publicly documented yet |
+| Security | Image/privacy handling should be considered for production deployment |
+| Impact | Explores an interactive approach to comparing fashion choices visually |
+| Repository | [View Repository](https://github.com/aadilda6-wq/STYLIN) |
+
+**Skills:** `AI` `AR` `Computer Vision` `Fashion Technology` `Product Engineering`
+
+</details>
+
+<details><summary><strong>02 · Lahel Vakkachan — Discord Team Management Bot</strong></summary>
+
+A modular Discord bot built for **student communities, hackathon teams, startups and software-development teams**. It automates tasks, deadlines, reminders, meetings and reporting directly inside Discord, with Google Meet and Google Calendar integrations.
+
+| Metric | Details |
+| --- | --- |
+| Stack | Node.js · MongoDB · Discord · Google Calendar · Google Meet · Docker |
+| Scale | Team / community automation platform |
+| Performance | Includes responsiveness, roundtrip latency and WebSocket latency utilities |
+| Security | Environment-based secrets and role-based server configuration |
+| Impact | Centralizes team coordination, scheduling, reminders and productivity reporting |
+| Repository | [View Repository](https://github.com/aadilda6-wq/Lahel-Vakkachan) |
+
+**Skills:** `Node.js` `MongoDB` `Discord.js` `Google APIs` `Docker` `Automation`
+
+</details>
+
+<details><summary><strong>03 · EchoRoom — Community Ideas, Experiments & Reflection Platform</strong></summary>
+
+An open-source platform where communities share ideas, run small experiments, document outcomes and reflect on what they learn. The core workflow is **Idea → Experiment → Outcome → Reflection → Shared Learning**.
+
+| Metric | Details |
+| --- | --- |
+| Stack | Next.js · Tailwind CSS · Node.js · REST APIs · MongoDB/PostgreSQL reference stack |
+| Scale | Open-source community platform |
+| Performance | Benchmark not publicly documented yet |
+| Security | UI/UX, moderation, state validation and secure backend design are explicit contribution areas |
+| Impact | Turns discussions into repeatable learning loops and shared knowledge |
+| Repository | [View Repository](https://github.com/aadilda6-wq/EchoRoom-Community-Ideas-Experiments-Reflection-Platform) |
+
+**Skills:** `Next.js` `Tailwind CSS` `Node.js` `REST API` `Database Design` `Open Source`
+
+</details>
+
+<details><summary><strong>04 · Cardiac-Disease — Machine Learning Mini Project</strong></summary>
+
+A compact academic machine-learning project maintained as a Jupyter Notebook, focused on experimentation with cardiac-disease-related data.
+
+| Metric | Details |
+| --- | --- |
+| Stack | Jupyter Notebook · Python / ML workflow |
+| Scale | Academic mini project |
+| Performance | No benchmark documented in the repository README |
+| Security | Data privacy and responsible use should be considered for real-world medical applications |
+| Impact | Provides hands-on experience with data-driven machine-learning workflows |
+| Repository | [View Repository](https://github.com/aadilda6-wq/Cardiac-Disease) |
+
+**Skills:** `Python` `Jupyter` `Machine Learning` `Data Analysis`
+
+</details>
+
+<details><summary><strong>05 · Exam Hall Seating System</strong></summary>
 
 A Java application designed to help students find examination room, floor and seat information using a roll number.
 
@@ -93,54 +161,20 @@ A Java application designed to help students find examination room, floor and se
 
 </details>
 
-<details><summary><strong>02 · Graph</strong></summary>
+<details><summary><strong>06 · Graph — Algorithmic Study Project</strong></summary>
 
-A computational project focused on graph concepts and algorithmic experimentation.
+An academic repository dedicated to graph-related study and algorithmic experimentation.
 
 | Metric | Details |
 | --- | --- |
-| Stack | Jupyter Notebook |
+| Stack | Jupyter Notebook / academic tooling |
 | Scale | Academic / Algorithmic |
 | Performance | Experimental |
 | Security | Academic scope |
-| Impact | Strengthens algorithmic thinking |
+| Impact | Strengthens algorithmic thinking and graph-based problem solving |
 | Repository | [View Repository](https://github.com/aadilda6-wq/Graph) |
 
-**Skills:** `Algorithms` `Graphs` `Jupyter Notebook` `Problem Solving`
-
-</details>
-
-<details><summary><strong>03 · Cardiac Disease</strong></summary>
-
-A data-oriented notebook project exploring computational approaches to cardiac-disease-related data.
-
-| Metric | Details |
-| --- | --- |
-| Stack | Jupyter Notebook |
-| Scale | Academic / Data-oriented |
-| Performance | Experimental |
-| Security | Privacy considerations required for real-world use |
-| Impact | Builds data-driven problem-solving experience |
-| Repository | [View Repository](https://github.com/aadilda6-wq/Cardiac-Disease) |
-
-**Skills:** `Python` `Data Analysis` `AI / ML`
-
-</details>
-
-<details><summary><strong>04 · EchoRoom — Community Ideas & Experiments Platform</strong></summary>
-
-An open-source community platform for sharing ideas, running small experiments, recording outcomes and reflecting on lessons learned.
-
-| Metric | Details |
-| --- | --- |
-| Stack | TypeScript |
-| Scale | Open-source community platform |
-| Performance | No public benchmark currently documented |
-| Security | Authentication, authorization and secure data handling recommended |
-| Impact | Encourages collaborative experimentation and knowledge sharing |
-| Repository | [View Repository](https://github.com/aadilda6-wq/EchoRoom-Community-Ideas-Experiments-Reflection-Platform) |
-
-**Skills:** `TypeScript` `Web Development` `Product Thinking` `Open Source`
+**Skills:** `Algorithms` `Graph Theory` `Problem Solving` `Jupyter Notebook`
 
 </details>
 
