@@ -246,7 +246,7 @@ An open-source community platform for sharing ideas, running small experiments, 
 ## Contribution Activity
 
 <div align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=aadilda6-wq&bg_color=0D0B1F&color=A78BFA&line=7C3AED&point=C4B5FD&area=true&hide_border=true&custom_title=Aadil%20D.A%20%E2%80%94%20Contribution%20Activity" width="95%" alt="Contribution Activity"/>
+<a href="https://github.com/aadilda6-wq"><img src="https://github-readme-activity-graph.vercel.app/graph?username=aadilda6-wq&theme=react-dark" width="95%" alt="Contribution Activity"/></a>
 </div>
 
 ---
