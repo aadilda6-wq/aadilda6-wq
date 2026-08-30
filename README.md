@@ -223,17 +223,23 @@ An open-source community platform for sharing ideas, running small experiments, 
 
 ## Contribution Activity
 
-<div align="center"><a href="https://github.com/aadilda6-wq"><img src="./profile/activity.svg" width="95%" alt="Contribution Activity"/></a></div>
+<div align="center">
+<a href="https://github.com/aadilda6-wq"><img src="./profile/activity.svg?v=2" width="95%" alt="Contribution Activity"/></a>
+</div>
 
 ---
 
 ## Contribution Snake
 
-<div align="center"><img src="https://raw.githubusercontent.com/aadilda6-wq/aadilda6-wq/output/github-contribution-grid-snake.svg" alt="GitHub Contribution Snake"/></div>
+<div align="center"><img src="https://raw.githubusercontent.com/aadilda6-wq/aadilda6-wq/output/github-contribution-grid-snake.svg?v=2" alt="GitHub Contribution Snake"/></div>
 
 ---
 
 ## Current Focus
+
+<div align="center">
+<img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=18&duration=2200&pause=700&color=8B5CF6&center=true&vCenter=true&width=760&lines=Building+secure+software;Exploring+AI-powered+applications;Learning+Cybersecurity+%26+Web+Security;Improving+Full-Stack+Engineering;Contributing+to+Open+Source" alt="Current Focus Animation"/>
+</div>
 
 ```yaml
 Learning:
