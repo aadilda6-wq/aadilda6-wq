@@ -1,6 +1,6 @@
 <div align="center">
 
-<a href="https://github.com/aadilda6-wq"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D0B1F,35:312E81,70:6D28D9,100:4C1D95&height=210&section=header&text=AADIL%20D.A&fontSize=56&fontColor=FFFFFF&fontAlignY=38&desc=Computer%20Science%20Engineering%20%7C%20Cybersecurity%20%7C%20AI%2FML%20%7C%20Web%20Engineering&descAlignY=62&descSize=18&animation=fadeIn" width="100%"/></a>
+<a href="https://github.com/aadilda6-wq"><img src="https://capsule-render.vercel.app/api?type=waving&color=0:0D0B1F,35:312E81,70:6D28D9,100:4C1D95&height=210&section=header&text=AADIL%20D%20A&fontSize=56&fontColor=FFFFFF&fontAlignY=38&desc=Computer%20Science%20Engineering%20%7C%20Cybersecurity%20%7C%20AI%2FML%20%7C%20Web%20Engineering&descAlignY=62&descSize=18&animation=fadeIn" width="100%"/></a>
 
 <br/>
 <img src="https://readme-typing-svg.demolab.com/?font=JetBrains+Mono&size=22&duration=2800&pause=900&color=A78BFA&center=true&vCenter=true&width=850&lines=Computer+Science+Engineering+Student;Cybersecurity+%7C+Artificial+Intelligence+%7C+Web+Engineering;Building+Secure%2C+Useful+%26+User-Centric+Software;Learning+Today.+Engineering+Tomorrow." alt="Typing SVG"/>
